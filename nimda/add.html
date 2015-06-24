@@ -1,0 +1,189 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>袜子啦|后台管理</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="../assets/i/favicon.png">
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <style>
+    .am-list-news-default .am-list .am-list-item-text {
+        overflow: visible;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header data-am-widget="header" class="am-header am-header-default">
+        <h1 class="am-header-title">
+            <a href="#title-link">袜子啦|增加商品</a>
+        </h1>
+        <div class="am-header-left am-header-nav">
+            <a href="index.html" class="">
+                <i class="am-header-icon am-icon-home"></i>
+            </a>
+        </div>
+    </header>
+    <!-- Menu -->
+    <nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
+        <a href="javascript: void(0)" class="am-menu-toggle">
+            <i class="am-menu-toggle-icon am-icon-bars"></i>
+        </a>
+        <div class="am-offcanvas">
+            <div class="am-offcanvas-bar">
+                <ul class="am-menu-nav sm-block-grid-1">
+                    <li class="am-parent">
+                        <a href="##">配送时间</a>
+                        <ul class="am-menu-sub am-collapse  sm-block-grid-2 ">
+                            <li class="">
+                                <a href="##">中午</a>
+                            </li>
+                            <li class="">
+                                <a href="##">晚上</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="##">问题反馈</a>
+                    </li>
+                    <li class="">
+                        <a href="##">关于我们</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="am-form">
+        <fieldset>
+            <legend>添加新商品</legend>
+            <div class="am-form-group">
+                <label for="name">商品名称</label>
+                <input type="text" id="name" placeholder="商品名称">
+            </div>
+            <div class="am-form-group">
+                <label for="title">标题</label>
+                <input type="text" id="title" placeholder="输入标题">
+            </div>
+            <div class="am-form-group">
+                <label for="title">数量</label>
+                <input type="text" id="num" placeholder="输入数量">
+            </div>
+            <div class="am-form-group">
+                <label for="price">价格</label>
+                <input type="text" id="price" placeholder="输入价格">
+            </div>
+            <div class="am-form-group">
+                <label for="desct">宝贝详情</label>
+                <textarea class="" rows="5" id="desct"></textarea>
+            </div>
+            <div class="am-form-group am-form-file">
+                <p id="picView"></p>
+                <button type="button" class="am-btn am-btn-danger am-btn-sm">
+                    <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
+                <input id="upPic" type="file"  multiple>
+            </div>
+            <input type="text" id="picBase" name="picBase" style="display:none">
+        </fieldset>
+    </div>
+    <!-- Navbar -->
+    <div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default " id="">
+        <ul class="am-navbar-nav am-cf am-avg-sm-4">
+            <li>
+                <a id="subButton">
+                    <span class="am-icon-paper-plane"></span>
+                    <span class="am-navbar-label">提交商品</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+     <!-- alert modal-->
+    <div class="am-modal am-modal-no-btn" tabindex="-1" id="waziAlert">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">提示
+                <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+            </div>
+            <div class="am-modal-bd">
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/amazeui.min.js"></script>
+    <script src="../assets/js/base.js"></script>
+    <script>
+
+    window.onload = function() {
+        var input = document.getElementById("upPic");
+        var picBase = document.getElementById("picBase");
+        var picView = document.getElementById("picView");
+        if (typeof(FileReader) === 'undefined') {
+            picBase.innerHTML = "抱歉，你的浏览器不支持 FileReader，请使用现代浏览器操作！";
+            input.setAttribute('disabled', 'disabled');
+        } else {
+            input.addEventListener('change', readFile, false);
+        }
+    }
+
+    function readFile() {
+        var file = this.files[0];
+        //这里我们判断下类型如果不是图片就返回 去掉就可以上传任意文件 
+        if (!/image\/\w+/.test(file.type)) {
+            alert("请确保文件为图像类型");
+            return false;
+        }
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function(e) {
+            picBase.value = this.result;
+            picView.innerHTML = '<div class="sitetip">图片预览：</div><img src="' + this.result + '" width="100%"/>';
+        }
+    }
+
+    function up(num, name, title,price,pic,desct){
+        $.ajax('../data/sub.php?a=add', {
+            data: {
+                num:num, 
+                name:name, 
+                title:title,
+                price:price,
+                pic:pic,
+                desct:desct
+            },
+            dataType: 'json', //服务器返回json格式数据
+            type: 'post', //HTTP请求类型
+            timeout: 10000, //超时时间设置为10秒；
+            success: function(data) {
+                alert('提交成功');
+                setTimeout(function(){
+                    history.go(0);
+                },1500);
+                
+            },
+            error: function(xhr, type, errorThrown) {
+                //异常处理；
+                console.log(type);
+            }
+        });
+    }
+    $("#subButton").click(function(){
+        var num = $("#num").val();
+        var name = $("#name").val();
+        var title = $("#title").val();
+        var price = $("#price").val();
+        var pic = $("#picBase").val();
+        var desct = $("#desct").val();
+        up(num, name, title,price,pic,desct);
+
+    });
+    </script>
+</body>
+
+</html>

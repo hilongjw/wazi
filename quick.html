@@ -1,0 +1,261 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>卖袜子呗</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <style>
+    .address select {
+        width: 30%;
+        float: left;
+    }
+    
+    .address input {
+        width: 40%!important;
+        float: left;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header data-am-widget="header" class="am-header am-header-default">
+        <h1 class="am-header-title">
+    <a href="#title-link">袜子啦</a>
+    <div class="am-header-left am-header-nav">
+            <a href="index.html" class="">
+                <i class="am-header-icon am-icon-home"></i>
+            </a>
+        </div>
+  </h1>
+    </header>
+    <!-- Menu -->
+    <nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
+        <a href="javascript: void(0)" class="am-menu-toggle">
+            <i class="am-menu-toggle-icon am-icon-bars"></i>
+        </a>
+        <div class="am-offcanvas">
+            <div class="am-offcanvas-bar">
+                <ul class="am-menu-nav sm-block-grid-1">
+                    <li class="am-parent">
+                        <a href="##">配送时间</a>
+                        <ul class="am-menu-sub am-collapse  sm-block-grid-2 ">
+                            <li class="">
+                                <a href="##">中午</a>
+                            </li>
+                            <li class="">
+                                <a href="##">晚上</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="##">问题反馈</a>
+                    </li>
+                    <li class="">
+                        <a href="##">关于我们</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div data-am-widget="list_news" class="am-list-news am-list-news-default">
+        <div class="am-list-news-bd">
+            <ul class="am-list">
+                <!--缩略图在标题左边-->
+                <!-- <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left">
+                    <div class="am-u-sm-4 am-list-thumb">
+                        <a id="pic">
+                            <img src="" alt="" />
+                        </a>
+                    </div>
+                    <div class="am-u-sm-6 am-list-main">
+                        <h3 class="am-list-item-hd">
+                            <a id="title">[绿色]新品薄款男式袜春夏袜子</a>
+                        </h3>
+                        <div class="am-list-item-text" id="price">￥2.99</div>
+                    </div>
+                    <div>
+                        <div class="am-u-sm-2">
+                            <select class="" id="num">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3" selected="true">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+    <div class="am-form">
+        <fieldset>
+            <div class="am-form-group">
+                <label for="name">手机</label>
+                <input type="number" id="tel" placeholder="输入手机">
+            </div>
+            <div class="am-form-group ">
+                <label for="name">宿舍地址</label>
+                <div class="address">
+                    <select name="blockNum" id="blockNum">
+                        <option value="0">楼号</option>
+                        <option value="1">1</option>
+                        <option value="1">2</option>
+                        <option value="1">3</option>
+                        <option value="1">4</option>
+                        <option value="1">5</option>
+                        <option value="1">6</option>
+                        <option value="1">7</option>
+                        <option value="1">8</option>
+                        <option value="1">9</option>
+                        <option value="1">10</option>
+                        <option value="1">11</option>
+                        <option value="1">12</option>
+                        <option value="1">13</option>
+                    </select>
+                    <select name="block" id="block">
+                        <option value="0">区域</option>
+                        <option value="舍">舍</option>
+                        <option value="锦地苑">锦地苑</option>
+                        <option value="临江苑">临江苑</option>
+                        <option value="德馨苑">德馨苑</option>
+                    </select>
+                    <input type="number" id="room" placeholder="输入寝室号">
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <!-- Navbar -->
+    <div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default " id="">
+        <ul class="am-navbar-nav am-cf am-avg-sm-6" style="padding-right:0px">
+            <li>
+                <a>
+                    <span class="am-navbar-label" id="orderPrice">总共：￥8.97</span>
+                </a>
+            </li>
+            <li style="background:#ff5000;" id="order">
+                <a>
+                    <span class="am-navbar-label"> 提交，然后坐等收货</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+     <!-- alert modal-->
+    <div class="am-modal am-modal-no-btn" tabindex="-1" id="waziAlert">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">提示
+                <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+            </div>
+            <div class="am-modal-bd">
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/amazeui.min.js"></script>
+    <script src="assets/js/base.js"></script>
+
+    <script>
+    var price;
+
+    function reco() {
+        $.ajax('data/data.php', {
+            data: {
+                a: 'reco'
+            },
+            dataType: 'json', //服务器返回json格式数据
+            type: 'get', //HTTP请求类型
+            timeout: 10000, //超时时间设置为10秒；
+            success: function(data) {
+                item = '';
+                $.each(data, function(e) {
+                    item += '<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left"><div class="am-u-sm-4 am-list-thumb"><a id="pic"><img src="' + data[e].pic[0] + '" alt="" /></a></div><div class="am-u-sm-6 am-list-main"><h3 class="am-list-item-hd"><a id="title">' + data[e].title + '</a></h3><div class="am-list-item-text" id="price">￥' + data[e].price + '</div></div><div><div class="am-u-sm-2"><select class="numS" id="num"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3" selected="true">3</option><option value="4">4</option><option value="5">5</option></select><input style="display:none" class="priceS" value="' + data[e].price + '"><input style="display:none" class="idS" value="' + data[e].id + '"></div></div></li>';
+                });
+                 $(".am-list").html(item);
+                priceX();
+                var numS = document.getElementsByClassName('numS');
+                for (i = 0; i < numS.length; i++) {
+                numS[i].onchange = function() {
+                    priceX();
+                }}
+               
+
+            },
+            error: function(xhr, type, errorThrown) {
+                //异常处理；
+                console.log(type);
+            }
+        });
+    }
+    reco();
+
+    function priceX() {
+
+        var priceX = 0;
+        var numS = document.getElementsByClassName('numS');
+        var priceS = document.getElementsByClassName('priceS');
+       
+        for (i = 0; i < $('.numS').length; i++) {
+            priceX += priceS[i].value * numS[i].value;
+        }
+        priceX = priceX.toFixed(2);
+        $('#orderPrice').text('总共：￥' + priceX + '');
+    }
+
+
+
+    function goOrder(id, num, tel, address) {
+        $.ajax('data/sub.php?a=order', {
+            data: {
+                id: id,
+                num: num,
+                tel: tel,
+                address: address
+            },
+            dataType: 'json', //服务器返回json格式数据
+            type: 'post', //HTTP请求类型
+            timeout: 10000, //超时时间设置为10秒；
+            success: function(data) {
+                if (data.success == '1') {
+                    alert("提交成功，坐等收货吧");
+                    history.go(0);
+                }
+            },
+            error: function(xhr, type, errorThrown) {
+                //异常处理；
+                console.log(type);
+            }
+        });
+    }
+
+    $("#order").click(function() {
+
+        var num = $("#num").val();
+        var tel = $("#tel").val();
+        var address = $("#blockNum").val() + $("#block").val() + $("#room").val();
+        if (tel == '') {
+            alert('请输入手机号码');
+        } else if ($("#blockNum").val() == '0' || $("#block").val() == '0' || $("#room").val() == '0') {
+            alert('请输入寝室地址');
+        } else {
+            for(i=0;i<$('.idS').length;i++){
+                if($(".numS").eq(i).val()!='0'){
+                    goOrder($(".idS").eq(i).val(), num, tel, address);
+                }
+            }
+            
+        }
+    });
+    </script>
+</body>
+
+</html>
