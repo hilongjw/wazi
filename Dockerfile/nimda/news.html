@@ -1,0 +1,131 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>袜子啦|后台管理</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="../assets/i/favicon.png">
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <style>
+    .am-list-news-default .am-list .am-list-item-text {
+        overflow: visible;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header data-am-widget="header" class="am-header am-header-default">
+        <h1 class="am-header-title">
+            <a href="#title-link">袜子啦|管理</a>
+        </h1>
+        <div class="am-header-left am-header-nav">
+            <a href="index.html" class="">
+                <i class="am-header-icon am-icon-home"></i>
+            </a>
+        </div>
+    </header>
+    <!-- Menu -->
+    <nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
+        <a href="javascript: void(0)" class="am-menu-toggle">
+            <i class="am-menu-toggle-icon am-icon-bars"></i>
+        </a>
+        <div class="am-offcanvas">
+            <div class="am-offcanvas-bar">
+                <ul class="am-menu-nav sm-block-grid-1">
+                    <li class="am-parent">
+                        <a href="##">配送时间</a>
+                        <ul class="am-menu-sub am-collapse  sm-block-grid-2 ">
+                            <li class="">
+                                <a href="##">中午</a>
+                            </li>
+                            <li class="">
+                                <a href="##">晚上</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="##">问题反馈</a>
+                    </li>
+                    <li class="">
+                        <a href="##">关于我们</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="am-form">
+        <fieldset>
+            <div class="am-form-group">
+                <label for="title">标题</label>
+                <input type="text" id="title" placeholder="输入标题">
+            </div>
+            <div class="am-form-group">
+                <label for="desct">内容</label>
+                <textarea class="" rows="5" id="desct"></textarea>
+            </div>
+        </fieldset>
+    </div>
+    <!-- Navbar -->
+    <div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default " id="">
+        <ul class="am-navbar-nav am-cf am-avg-sm-4">
+            <li>
+                <a id="subButton">
+                    <span class="am-icon-paper-plane"></span>
+                    <span class="am-navbar-label">提交公告</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- alert modal-->
+    <div class="am-modal am-modal-no-btn" tabindex="-1" id="waziAlert">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">提示
+                <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+            </div>
+            <div class="am-modal-bd">
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/amazeui.min.js"></script>
+    <script src="../assets/js/base.js"></script>
+    <script>
+    function up(title, desct) {
+        $.ajax('../data/sub.php?a=news', {
+            data: {
+                title: title,
+                desct: desct
+            },
+            dataType: 'json', //服务器返回json格式数据
+            type: 'post', //HTTP请求类型
+            timeout: 10000, //超时时间设置为10秒；
+            success: function(data) {
+                alert('提交成功');
+                setTimeout(function() {
+                    history.go(0);
+                }, 1500);
+            },
+            error: function(xhr, type, errorThrown) {
+                //异常处理；
+                console.log(type);
+            }
+        });
+    }
+    $("#subButton").click(function() {
+        var title = $("#title").val();
+        var desct = $("#desct").val();
+        up(title, desct);
+
+    });
+    </script>
+</body>
+
+</html>
